@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 13:19:20 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/09 18:03:03 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/06 15:28:38 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	int	i;
 	int j;
 
-	i = 1;
+	 i = 1;
 	if (ac > 1)
 	{
 		while (av[i])

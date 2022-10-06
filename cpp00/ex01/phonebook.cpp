@@ -6,12 +6,22 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:10:58 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/17 11:17:31 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/06 15:07:26 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
-#include "contanct.class.hpp"
+#include "phonebook.hpp"
+#include "contact.hpp"
+
+void check_input(std::string &inpt, std::string msg){
+    while (inpt.empty()){
+        std::cout<<msg<<std::ends;
+        getline(std::cin, inpt);
+        if (!inpt.empty())
+            break ;
+    }
+    return ;
+}
 
 void phonebook::save_contact(contact contact ,int c)
 {
@@ -138,34 +148,50 @@ std::string contact::get_pNumber()
     return(this->phone_Number);
 }
 
+
 void contact::set_fName()
 {
     std::cout<<"FIRST NAME: "<<std::ends;
     getline(std::cin, this->first_Name);
+    if (std::cin.eof())
+        exit(1);
+    check_input(this->first_Name, "FIRST NAME: ");
 }
 
 void contact::set_nName()
 {
     std::cout<<"NICK NAME: "<<std::ends;
     getline(std::cin, this->nick_Name);
+    if (std::cin.eof())
+        exit(1);   
+    check_input(this->nick_Name, "NICK NAME: ");
 }
 
 void contact::set_dSecret()
 {
     std::cout<<"DARKEST SECRET: "<<std::ends;
     getline(std::cin, this->darkest_Secret);
+    if (std::cin.eof())
+        exit(1);
+    check_input(this->darkest_Secret, "DARKEST SECRET: ");
 }
 
 void contact::set_lName()
 {
     std::cout<<"LAST NAME: "<<std::ends;
     getline(std::cin, this->last_Name);
+    if (std::cin.eof())
+        exit(1);
+    check_input(this->last_Name, "LAST NAME: ");
 }
 
 void contact::set_pNumber()
 {
     std::cout<<"PHONE NUMBER: "<<std::ends;
     getline(std::cin, this->phone_Number);
+    if (std::cin.eof())
+        exit(1);
+    check_input(this->phone_Number, "PHONE NUMBER: ");
 }
 
 int main()
@@ -180,13 +206,12 @@ int main()
         std::cout<<"enter something :"<<std::ends;
         getline(std::cin,str);
         if (!strcmp(str.c_str(), "ADD"))
-        {
-            // std::cout<<"okkk"<<std::endl;
             doc._phonebook(c);
-        }
         else if (!strcmp(str.c_str(), "SEARCH"))
-        {
             doc.sphonebook();
-        }
+        else if(!strcmp(str.c_str(), "EXIT"))
+            exit(0);
+        else if (std::cin.eof())
+            exit(0);
     }
 }

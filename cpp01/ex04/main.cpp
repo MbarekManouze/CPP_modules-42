@@ -6,16 +6,12 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:25:33 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/24 12:24:36 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/02 17:41:54 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-
-// void modify_string(std::string argument, std::string &line)
-// {
-// }
 
 int main(int ac, char **av)
 {
