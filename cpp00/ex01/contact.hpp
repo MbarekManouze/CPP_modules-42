@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:42:07 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 11:22:25 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:41:03 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # define MAX_CONTACT 8
 #include <iostream>
-#include <cctype>
-#include <cstring>
 #include <iomanip>
 
 class contact
