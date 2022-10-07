@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:10:56 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/06 13:24:12 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:16:13 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class phonebook
 {
     private:
-        contact arr[8];
+        contact contacts[8];
     public:
         void _phonebook(int &c);
         void sphonebook();

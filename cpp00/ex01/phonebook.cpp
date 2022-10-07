@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:10:58 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/06 15:07:26 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:18:44 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void check_input(std::string &inpt, std::string msg){
 
 void phonebook::save_contact(contact contact ,int c)
 {
-    this->arr[c] = contact;
+    this->contacts[c] = contact;
 }
 
 std::string phonebook::limit(std::string var)
@@ -42,7 +42,6 @@ void phonebook::display_search()
     int k;
     std::string s;
     contact Contact;
-    class contact find;
 
     if (i == 0)
     {
@@ -54,13 +53,13 @@ void phonebook::display_search()
     std::cout<<" ---------- ---------- ---------- ---------- "<<std::endl;
     while (j < i)
     {
-        Contact = this->arr[j];
+        Contact = this->contacts[j];
         std::cout<<"|"<<std::setw(10);
-        std::cout<<Contact.get_index()<<std::right<<std::ends;
+        std::cout<<Contact.get_index()<<std::ends;
         std::cout<<"|"<<std::setw(10);
-        std::cout<<limit(Contact.get_fName())<<std::right<<std::ends;
+        std::cout<<limit(Contact.get_fName())<<std::ends;
         std::cout<<"|"<<std::setw(10);
-        std::cout<<limit(Contact.get_lName())<<std::right<<std::ends;
+        std::cout<<limit(Contact.get_lName())<<std::ends;
         std::cout<<"|"<<std::setw(10);
         std::cout<<limit(Contact.get_nick())<<"|"<<std::ends;
         std::cout<<std::endl;
@@ -68,20 +67,19 @@ void phonebook::display_search()
     }
     std::cout<<"ENTER AN INDEX: "<<std::ends;
     getline(std::cin, s);
+    if (std::cin.eof())
+        exit(0);
     k = atoi(s.c_str());
     if (k > i || k > 8 || k <= 0)
-    {
-        std::cin.clear();
         std::cout<<"SORRY ,NO SUCH INDEX \n"<<std::ends;
-    }
     else
     {
-        find = this->arr[k - 1];
-        std::cout<<"LAST NAME: "<<find.get_lName()<<std::endl;
-        std::cout<<"FIRST NAME: "<<find.get_fName()<<std::endl;
-        std::cout<<"NICK NAME: "<<find.get_nick()<<std::endl;
-        std::cout<<"DARKEST SECRET: "<<find.get_dSecret()<<std::endl;
-        std::cout<<"PHONE NUMBER: "<<find.get_pNumber()<<std::endl;
+        Contact = this->contacts[k - 1];
+        std::cout<<"LAST NAME: "<<Contact.get_lName()<<std::endl;
+        std::cout<<"FIRST NAME: "<<Contact.get_fName()<<std::endl;
+        std::cout<<"NICK NAME: "<<Contact.get_nick()<<std::endl;
+        std::cout<<"DARKEST SECRET: "<<Contact.get_dSecret()<<std::endl;
+        std::cout<<"PHONE NUMBER: "<<Contact.get_pNumber()<<std::endl;
     }
 }
 
@@ -93,12 +91,23 @@ void phonebook::sphonebook()
 void phonebook::_phonebook(int &c)
 {
     contact contact;
+    std::string inpt;
 
-    contact.set_lName();
-    contact.set_fName();
-    contact.set_nName();
-    contact.set_dSecret();
-    contact.set_pNumber();
+    std::cout<<"LAST NAME: "<<std::ends;
+    getline(std::cin, inpt);
+    contact.set_lName(inpt);
+    std::cout<<"FIRST NAME: "<<std::ends;
+    getline(std::cin, inpt);
+    contact.set_fName(inpt);
+    std::cout<<"NICK NAME: "<<std::ends;
+    getline(std::cin, inpt);
+    contact.set_nName(inpt);
+    std::cout<<"DARKEST SECRET: "<<std::ends;
+    getline(std::cin, inpt);
+    contact.set_dSecret(inpt);
+    std::cout<<"PHONE NUMBER: "<<std::ends;
+    getline(std::cin, inpt);
+    contact.set_pNumber(inpt);
     contact.cord(c);
     this->save_contact(contact ,c);
     c++;
@@ -149,46 +158,41 @@ std::string contact::get_pNumber()
 }
 
 
-void contact::set_fName()
+void contact::set_fName(std::string fname)
 {
-    std::cout<<"FIRST NAME: "<<std::ends;
-    getline(std::cin, this->first_Name);
+    this->first_Name = fname;
     if (std::cin.eof())
         exit(1);
     check_input(this->first_Name, "FIRST NAME: ");
 }
 
-void contact::set_nName()
+void contact::set_nName(std::string nname)
 {
-    std::cout<<"NICK NAME: "<<std::ends;
-    getline(std::cin, this->nick_Name);
+    this->nick_Name = nname;
     if (std::cin.eof())
         exit(1);   
     check_input(this->nick_Name, "NICK NAME: ");
 }
 
-void contact::set_dSecret()
+void contact::set_dSecret(std::string dsecret)
 {
-    std::cout<<"DARKEST SECRET: "<<std::ends;
-    getline(std::cin, this->darkest_Secret);
+    this->darkest_Secret = dsecret;
     if (std::cin.eof())
         exit(1);
     check_input(this->darkest_Secret, "DARKEST SECRET: ");
 }
 
-void contact::set_lName()
+void contact::set_lName(std::string lname)
 {
-    std::cout<<"LAST NAME: "<<std::ends;
-    getline(std::cin, this->last_Name);
+    this->last_Name = lname;
     if (std::cin.eof())
         exit(1);
     check_input(this->last_Name, "LAST NAME: ");
 }
 
-void contact::set_pNumber()
+void contact::set_pNumber(std::string pnumber)
 {
-    std::cout<<"PHONE NUMBER: "<<std::ends;
-    getline(std::cin, this->phone_Number);
+    this->phone_Number = pnumber;
     if (std::cin.eof())
         exit(1);
     check_input(this->phone_Number, "PHONE NUMBER: ");
@@ -205,13 +209,11 @@ int main()
     {
         std::cout<<"enter something :"<<std::ends;
         getline(std::cin,str);
-        if (!strcmp(str.c_str(), "ADD"))
+        if (str == "ADD")
             doc._phonebook(c);
-        else if (!strcmp(str.c_str(), "SEARCH"))
+        else if (str == "SEARCH")
             doc.sphonebook();
-        else if(!strcmp(str.c_str(), "EXIT"))
-            exit(0);
-        else if (std::cin.eof())
+        else if(str =="EXIT" || std::cin.eof())
             exit(0);
     }
 }
