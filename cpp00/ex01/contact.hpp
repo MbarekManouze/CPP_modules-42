@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:42:07 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 10:58:55 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:22:25 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ class contact
         int get_index();
         void cord(int c);
 };
-void check_input(std::string &inpt, std::string msg);
 
 int i;
 
