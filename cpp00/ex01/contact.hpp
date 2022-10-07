@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:42:07 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 11:41:03 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:16:25 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <iomanip>
 
-class contact
+class Contact
 {
     private:
         std::string last_Name;

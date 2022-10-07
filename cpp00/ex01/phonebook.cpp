@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:10:58 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 14:36:32 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:18:52 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void check_input(std::string &inpt, std::string msg){
     return ;
 }
 
-void phonebook::save_contact(contact contact ,int c)
+void Phonebook::save_contact(Contact contact ,int c)
 {
     this->contacts[c] = contact;
 }
 
-std::string phonebook::limit(std::string var)
+std::string Phonebook::limit(std::string var)
 {
     if (var.length() >= 10)
         return (var.substr(0, 9) + '.');
@@ -35,12 +35,12 @@ std::string phonebook::limit(std::string var)
         return (var);
 }
 
-void phonebook::display_search()
+void Phonebook::display_search()
 {
     int j = 0;
     int k;
     std::string s;
-    contact Contact;
+    Contact Contact;
 
     if (i == 0)
     {
@@ -82,14 +82,14 @@ void phonebook::display_search()
     }
 }
 
-void phonebook::sphonebook()
+void Phonebook::sphonebook()
 {
     display_search();
 }
 
-void phonebook::_phonebook(int &c)
+void Phonebook::_phonebook(int &c)
 {
-    contact contact;
+    Contact contact;
     std::string inpt;
 
     std::cout<<"LAST NAME: "<<std::ends;
@@ -116,48 +116,48 @@ void phonebook::_phonebook(int &c)
         c = 0;
 }
 
-void contact::cord(int c)
+void Contact::cord(int c)
 {
     this->idx = c + 1;
 }
 
-std::string contact::get_nick()
+std::string Contact::get_nick()
 {
     return(this->nick_Name);
 }
 
-int contact::get_index()
+int Contact::get_index()
 {
     return(this->idx);
 }
 
-std::string contact::get_lName()
+std::string Contact::get_lName()
 {
     return(this->last_Name);
 }
 
-std::string contact::get_fName()
+std::string Contact::get_fName()
 {
     return(this->first_Name);
 }
 
-std::string contact::get_nName()
+std::string Contact::get_nName()
 {
     return(this->nick_Name);
 }
 
-std::string contact::get_dSecret()
+std::string Contact::get_dSecret()
 {
     return(this->darkest_Secret);
 }
 
-std::string contact::get_pNumber()
+std::string Contact::get_pNumber()
 {
     return(this->phone_Number);
 }
 
 
-void contact::set_fName(std::string fname)
+void Contact::set_fName(std::string fname)
 {
     this->first_Name = fname;
     if (std::cin.eof())
@@ -165,7 +165,7 @@ void contact::set_fName(std::string fname)
     check_input(this->first_Name, "FIRST NAME: ");
 }
 
-void contact::set_nName(std::string nname)
+void Contact::set_nName(std::string nname)
 {
     this->nick_Name = nname;
     if (std::cin.eof())
@@ -173,7 +173,7 @@ void contact::set_nName(std::string nname)
     check_input(this->nick_Name, "NICK NAME: ");
 }
 
-void contact::set_dSecret(std::string dsecret)
+void Contact::set_dSecret(std::string dsecret)
 {
     this->darkest_Secret = dsecret;
     if (std::cin.eof())
@@ -181,7 +181,7 @@ void contact::set_dSecret(std::string dsecret)
     check_input(this->darkest_Secret, "DARKEST SECRET: ");
 }
 
-void contact::set_lName(std::string lname)
+void Contact::set_lName(std::string lname)
 {
     this->last_Name = lname;
     if (std::cin.eof())
@@ -189,7 +189,7 @@ void contact::set_lName(std::string lname)
     check_input(this->last_Name, "LAST NAME: ");
 }
 
-void contact::set_pNumber(std::string pnumber)
+void Contact::set_pNumber(std::string pnumber)
 {
     this->phone_Number = pnumber;
     if (std::cin.eof())
@@ -199,7 +199,7 @@ void contact::set_pNumber(std::string pnumber)
 
 int main()
 {
-    phonebook doc;
+    Phonebook doc;
     std::string str;
     int c = 0;
     i = 0;
