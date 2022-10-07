@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:10:58 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 11:43:28 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:36:32 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void phonebook::_phonebook(int &c)
     std::cout<<"NICK NAME: "<<std::ends;
     getline(std::cin, inpt);
     contact.set_nName(inpt);
-    std::cout<<"DARKEST SECRET: "<<std::ends;
+    std::cout<< "DARKEST SECRET: " <<std::ends;
     getline(std::cin, inpt);
     contact.set_dSecret(inpt);
     std::cout<<"PHONE NUMBER: "<<std::ends;

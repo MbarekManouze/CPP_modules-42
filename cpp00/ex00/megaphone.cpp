@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 13:19:20 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 11:38:42 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:32:18 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	int	i;
 	int j;
 
-	 i = 1;
+	i = 1;
 	if (ac > 1)
 	{
 		while (av[i])
@@ -35,6 +35,6 @@ int main(int ac, char **av)
 		std::cout<<std::endl;
 	}
 	else
-		std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<std::endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" <<std::endl;
     return (0);
 }
