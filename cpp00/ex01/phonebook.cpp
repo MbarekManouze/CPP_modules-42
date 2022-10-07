@@ -6,12 +6,11 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:10:58 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 11:18:44 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:21:17 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
-#include "contact.hpp"
 
 void check_input(std::string &inpt, std::string msg){
     while (inpt.empty()){
