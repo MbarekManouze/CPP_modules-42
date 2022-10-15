@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 13:14:23 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/09 09:30:45 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/14 11:35:53 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <new>
-
 
 class Zombie
 {

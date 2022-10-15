@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 11:09:53 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/11 11:07:54 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/10/08 15:51:49 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/10/08 18:58:04 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 #include <iostream>
+#include "Animal.hpp"
 
-class Harl{
-    private:
-        void debug(void);
-        void info(void);
-        void warning(void);
-        void error(void);
+class Cat: public Animal{
     public:
-        void complain( std::string level );
-        void inside(int i);
+        Cat();
+        Cat(std::string type);
+        ~Cat();
+        Cat &operator=(Cat &object);
+        void makeSound()const;
 };
+
 
 #endif

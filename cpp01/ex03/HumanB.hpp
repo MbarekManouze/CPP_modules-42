@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:56:16 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/23 10:12:12 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:24:27 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class HumanB{
         std::string name;
         Weapon* weapon;
     public:
-        HumanB();
         HumanB(std::string name);
         ~HumanB();
         void attack();

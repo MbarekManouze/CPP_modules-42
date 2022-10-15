@@ -6,11 +6,12 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 11:35:55 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/28 12:04:22 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:24:16 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
 
 void Harl::debug(void)
 {
@@ -29,6 +30,17 @@ void Harl::error(void){
     std::cout<<"This is unacceptable! I want to speak to the manager now."<<std::endl;
 }
 
+void Harl::inside(int i){
+    typedef void (Harl::*nedel)();
+    nedel f[4]={
+        &Harl::debug,
+        &Harl::error,
+        &Harl::info,
+        &Harl::warning
+    };
+    (this->*f[i])();
+}
+
 void Harl::complain(std::string level){
 
     int i = 0;
@@ -38,16 +50,10 @@ void Harl::complain(std::string level){
         "INFO",
         "WARNING"
     };
-    void (Harl::*nedel[4])(void)={
-        &Harl::debug,
-        &Harl::error,
-        &Harl::info,
-        &Harl::warning
-    };
     while (i < 4)
     {
         if (level == problems[i])
-            (this->*nedel[i])();
+            (this->inside(i));
         i++;
     }
 }

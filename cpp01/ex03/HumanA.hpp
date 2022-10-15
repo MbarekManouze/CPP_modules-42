@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:59:21 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/23 10:07:39 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:24:34 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class HumanA{
         std::string name;
         Weapon& weapon;
     public:
-        // HumanA();
         HumanA(std::string name, Weapon &weapon);
         ~HumanA();
         void attack();

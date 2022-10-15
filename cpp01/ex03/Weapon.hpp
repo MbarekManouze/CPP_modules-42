@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:51:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/22 15:51:48 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/15 10:57:10 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ class Weapon{
     private:
         std::string type;
     public:
-        Weapon();
         Weapon(std::string type);
-        ~Weapon();
         const std::string & getType();
         void setType(std::string type);
 };

@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/06 15:09:14 by mmanouze          #+#    #+#              #
-#    Updated: 2022/10/09 09:42:07 by mmanouze         ###   ########.fr        #
+#    Created: 2022/10/09 18:56:28 by mmanouze          #+#    #+#              #
+#    Updated: 2022/10/09 18:57:03 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = brain
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = megaphone.cpp 
+SRCS = main.cpp \
 
 all : $(NAME)
 

@@ -5,24 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/06 15:09:14 by mmanouze          #+#    #+#              #
-#    Updated: 2022/10/09 09:42:07 by mmanouze         ###   ########.fr        #
+#    Created: 2022/10/10 10:18:54 by mmanouze          #+#    #+#              #
+#    Updated: 2022/10/10 10:19:59 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
-CC = clang++
+Name = harl
+Cc = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = megaphone.cpp 
+SRCS = main.cpp Harl.cpp
 
-all : $(NAME)
+all : $(Name)
 
-$(NAME) : $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(Name) : $(SRCS)
+	$(Cc) $(CFLAGS) $(SRCS) -o $(Name)
 
 fclean :
-	rm -f $(NAME)
+	rm -rf $(Name)
 
-re : fclean all
+re : all fclean
 
-.PHONY : all fclean re
+.PHONY : all re fclean

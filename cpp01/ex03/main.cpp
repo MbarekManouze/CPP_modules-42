@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:16:21 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/22 13:17:14 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/14 15:45:31 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
-return 0;
+    return 0;
 }

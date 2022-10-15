@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:44:32 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/09 09:37:24 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/14 11:38:26 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ Zombie::Zombie(){
 
 Zombie::Zombie(std::string name){
     this->name = name;
-    std::cout<<"Zombie "<<name<<" Copy Constructor Called"<<std::endl;
 }
 
 Zombie::~Zombie(){
-    std::cout<<"Zombie "<<name<<" Died"<<std::endl;
+    std::cout<<this->name<<" Destructor Called"<<std::endl;
 }
 
 void Zombie::announce(void)

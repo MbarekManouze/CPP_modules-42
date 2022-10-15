@@ -6,14 +6,12 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:00:08 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/23 10:15:12 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/14 11:42:11 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "Weapon.hpp"
-
-// HumanA::HumanA() : weapon(weapon){}
 
 HumanA::HumanA(std::string name, Weapon &weapon)  : weapon(weapon)
 {
@@ -21,7 +19,9 @@ HumanA::HumanA(std::string name, Weapon &weapon)  : weapon(weapon)
     this->weapon = weapon;
 }
 
-HumanA::~HumanA(){}
+HumanA::~HumanA(){
+    std::cout<<name<<" Destructor called"<<std::endl;
+}
 
 void HumanA::attack()
 {

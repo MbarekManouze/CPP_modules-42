@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 11:09:53 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/11 11:07:54 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/10/08 15:41:38 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/10/08 20:51:40 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
+#include <new>
 
-class Harl{
-    private:
-        void debug(void);
-        void info(void);
-        void warning(void);
-        void error(void);
+class Animal{
+    protected:
+        std::string type;
     public:
-        void complain( std::string level );
-        void inside(int i);
+        Animal();
+        Animal(std::string type);
+        ~Animal();
+        virtual void makeSound()const{std::cout<<"ihooooo"<<std::endl;};
+        std::string getType()const;
+        Animal &operator=(Animal &object);
 };
+
 
 #endif

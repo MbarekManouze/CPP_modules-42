@@ -6,7 +6,7 @@
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 16:08:35 by mmanouze          #+#    #+#              #
-#    Updated: 2022/10/07 11:05:33 by mmanouze         ###   ########.fr        #
+#    Updated: 2022/10/09 09:42:12 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,4 +25,4 @@ fclean :
 
 re : fclean all
 
-.PHONY : clean all fclean re bonus
+.PHONY : all fclean re

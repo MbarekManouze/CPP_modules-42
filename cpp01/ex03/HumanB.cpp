@@ -6,24 +6,31 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:13:07 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/23 10:12:31 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:24:20 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 
-HumanB::HumanB(){}
 
 HumanB::HumanB(std::string name)
 {
+    this->weapon = NULL;
     this->name = name;
 }
 
-HumanB::~HumanB(){}
+HumanB::~HumanB(){
+    std::cout<<name<<" Destructor Called"<<std::endl;
+}
 
 void HumanB::attack()
 {
+    if (this->weapon == NULL)
+    {
+        std::cout<<"can't attack ,No Weapon setted"<<std::endl;
+        return ;
+    }
     std::cout<<this->name<<" attacks with their "<<this->weapon->getType()<<std::endl;
 }
 
