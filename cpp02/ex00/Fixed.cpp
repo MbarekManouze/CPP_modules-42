@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/28 15:25:36 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:36:27 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed(): fp_value(0){
 Fixed::Fixed(Fixed& object){
     std::cout<<"Copy constructor called"<<std::endl;
     this->fp_value = object.fp_value;
-    *this = object;
+    *this = object; // only this expression is enough to copy the whole object !!!
 }
 
 Fixed &Fixed::operator=(Fixed& object){

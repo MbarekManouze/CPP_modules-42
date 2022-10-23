@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:29:24 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/30 15:24:26 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:36:19 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Fixed{
     private:
-        int fp_value;
+        long int fp_value;
         static const int bits = 8;
     public:
         Fixed();
@@ -31,8 +31,6 @@ class Fixed{
         int toInt( void ) const;
         int getRawBits(void);
         void setRawBits(const int Raw);
-        // 1 << this.bit
-        // 1* 2^8
 };
 std::ostream &operator<<(std::ostream &os, Fixed const &object);
 

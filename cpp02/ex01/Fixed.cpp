@@ -6,13 +6,13 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/30 18:41:33 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:30:11 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(): fp_value(0){
+Fixed::Fixed():fp_value(0){
     std::cout<<"Default constructor called"<<std::endl;
 }
 
@@ -47,8 +47,6 @@ Fixed::~Fixed(){
 }
 
 float Fixed::toFloat(void)const{
-    // std::cout <<"this->fp_value";
-    //  std::cout <<this->fp_value<<std::endl;
     return (float(this->fp_value) / float(1 << this->bits));
 }
 
@@ -62,7 +60,5 @@ int Fixed::getRawBits(void){
 }
 
 void Fixed::setRawBits(const int Raw){
-    //  std::cout<<roundf(Raw * (pow(2, 8)))<<std::endl;
-    //  std::cout<< 2560 / float(pow(2, 8)) <<std::endl;
     this->fp_value = roundf(Raw * (1  << this->bits));
 }

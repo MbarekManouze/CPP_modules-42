@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:29:24 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/03 17:56:29 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:36:04 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed{
     private:
         int fp_value;
-        static const int bits = 8;
+        static const int bits;
     public:
         Fixed();
         Fixed(const int i);
@@ -27,17 +27,17 @@ class Fixed{
         Fixed(Fixed const &object);
         ~Fixed();
         Fixed &operator=(Fixed const &object);
-        Fixed operator++();
+        Fixed &operator++();
         Fixed operator++(int);
-        Fixed operator--();
+        Fixed &operator--();
         Fixed operator--(int);
-        Fixed &operator+(Fixed const &object);
-        Fixed operator-(Fixed const &object);
-        Fixed &operator*(Fixed const &object);
-        Fixed &operator/(Fixed const &object);
-        static Fixed max(Fixed &a, Fixed const &b);
+        const Fixed operator+(Fixed const &object)const;
+        const Fixed operator-(Fixed const &object)const;
+        const Fixed operator*(Fixed const &object)const;
+        const Fixed operator/(Fixed const &object)const;
+        const static Fixed &max(Fixed &a, Fixed const &b);
         const static Fixed &max(Fixed const &a, Fixed const &b);       
-        static Fixed min(Fixed &a, Fixed const &b);
+        const static Fixed &min(Fixed &a, Fixed const &b);
         const static Fixed &min(Fixed const &a, Fixed const &b);
         int operator>(Fixed const &object)const;
         int operator<(Fixed const &object)const;

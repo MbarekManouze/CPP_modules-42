@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:29:24 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/09/28 12:41:10 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/17 20:39:17 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed{
     private:
         int fp_value;
-        static const int bits = 8;
+        static const int bits;
     public:
         Fixed();
         Fixed(Fixed& object);

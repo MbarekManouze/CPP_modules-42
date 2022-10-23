@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/04 10:55:37 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:36:01 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,61 +37,58 @@ std::ostream &operator<<(std::ostream &os, Fixed const &object){
     return os;
 }
 
-Fixed Fixed::operator++(){
-    Fixed a;
-    // std::cout<<"heeere"<<std::endl;
+Fixed &Fixed::operator++(){
     this->fp_value++;
-    // if (!this->fp_value)
-    //     this->fp_value = 1;
-    a.fp_value = this->fp_value;
-    return (a);
+    return (*this);
 }
 
 Fixed Fixed::operator++(int){
     Fixed a;
-
     a.fp_value = this->fp_value;
     this->fp_value++;
-    // this->fp_value *= 2;
     return (a);
 }
 
-Fixed Fixed::operator--(){
-    Fixed a;
-
-    if (!this->fp_value)
-        this->fp_value = 1;
-    a.fp_value = this->fp_value;
-    return (a);
+Fixed &Fixed::operator--(){
+    this->fp_value--;
+    return (*this);
 }
 
 Fixed Fixed::operator--(int){
     Fixed a;
-
     a.fp_value = this->fp_value;
-    this->fp_value /= 2;
+    this->fp_value--;
     return (a);
 }
 
-Fixed &Fixed::operator+(Fixed const &object){
-    this->fp_value += object.fp_value;
-    return(*this);
+const Fixed Fixed::operator+(Fixed const &object)const{
+    Fixed a;
+    a.fp_value = this->fp_value;
+    a.fp_value += object.fp_value;
+    return(a);
 }
 
-Fixed Fixed::operator-(Fixed const &object){
-    this->fp_value -= object.fp_value;
-    return (*this);
+const Fixed Fixed::operator-(Fixed const &object)const{
+    Fixed a;
+    a.fp_value = this->fp_value;
+    a.fp_value -= object.fp_value;
+    return (a);
 }
 
-Fixed &Fixed::operator*(Fixed const &object){
-    this->fp_value *= object.fp_value;
-    this->fp_value = this->fp_value / (1 << 8);
-    return (*this);
+const Fixed Fixed::operator*(Fixed const &object)const{
+    Fixed a;
+    a.fp_value = this->fp_value;
+    a.fp_value *= object.fp_value;
+    a.fp_value = a.fp_value >> this->bits;
+    return (a);
 }
 
-Fixed &Fixed::operator/(Fixed const &object){
-    this->fp_value /= object.fp_value;
-    return (*this);
+const Fixed Fixed::operator/(Fixed const &object)const{
+    Fixed a;
+    a.fp_value = this->fp_value;
+    a.fp_value /= object.fp_value;
+    a.fp_value = a.fp_value << this->bits;
+    return (a);
 }
 
 int Fixed::operator>(Fixed const &object)const{
@@ -119,11 +116,10 @@ int Fixed::operator!=(Fixed const &object){
 }
 
 Fixed::~Fixed(){
-    // std::cout<<"Destructor called"<<std::endl;
+    std::cout<<this->fp_value / 256<<" Destructor called"<<std::endl;
 }
 
 float Fixed::toFloat(void)const{
-    // std::cout << "a;ami " << this->fp_value << std::endl;
     return (float(this->fp_value) / (1 << this->bits));
 }
 
@@ -131,13 +127,13 @@ int Fixed::toInt(void)const{
     return int(this->fp_value >> this->bits);
 }
 
-Fixed Fixed::max(Fixed &a, Fixed const &b){
+const Fixed &Fixed::max(Fixed &a, Fixed const &b){
     if (a > b)
         return (a);
     return (b);
 }
 
-Fixed Fixed::min(Fixed &a, Fixed const &b){
+const Fixed &Fixed::min(Fixed &a, Fixed const &b){
     if (a < b)
         return (a);
     return (b);
@@ -155,11 +151,11 @@ const Fixed &Fixed::min(Fixed const &a, Fixed const &b){
     return (b);
 }
 
-// int Fixed::getRawBits(void){
-//     std::cout<<"getRawBits member function called"<<std::endl;
-//     return (this->fp_value);
-// }
+int Fixed::getRawBits(void){
+    // std::cout<<"getRawBits member function called"<<std::endl;
+    return (this->fp_value);
+}
 
-// void Fixed::setRawBits(const int Raw){
-//     this->fp_value = roundf(Raw * (1  << this->bits));
-// }
+void Fixed::setRawBits(const int Raw){
+    this->fp_value = roundf(Raw * (1  << this->bits));
+}
