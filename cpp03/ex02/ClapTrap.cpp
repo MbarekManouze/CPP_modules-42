@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 11:37:22 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/06 10:34:39 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/30 21:58:17 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(std::string name):name(name),Hit_points(10),Energy_points(10)
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout<<"ClapTrap "<<name<<" Default Destructor Called"<<std::endl;
+    std::cout<<"ClapTrap "<<name<<" Destructor Called"<<std::endl;
 }
 
 ClapTrap ClapTrap::operator=(ClapTrap &object){
@@ -34,7 +34,7 @@ ClapTrap ClapTrap::operator=(ClapTrap &object){
 
 void ClapTrap::attack(const std::string &target){
     std::cout<<"Claptrap "<<this->name;
-    if (this->Energy_points > 0)
+    if (this->Energy_points > 0 && this->Hit_points > 0)
     {
         std::cout<<" attacks "<<target<<" ,causing "<<Attack_damage<<" points of damage!"<<std::endl;
         this->Energy_points--;
@@ -45,25 +45,30 @@ void ClapTrap::attack(const std::string &target){
 
 void ClapTrap::takeDamage(unsigned int amount){
     std::cout<<"ClapTrap "<<this->name;
-    if (amount > this->Hit_points)
+    if (Hit_points == 0)
+        std::cout << " already Dead" << std::endl;
+    else if (amount >= (unsigned int)this->Hit_points)
     {
-        std::cout<<"takes damage of "<<amount<<" and DIES"<<std::endl;
+        std::cout<<" takes damage of "<<amount<<" and DIES"<<std::endl;
         this->Energy_points = 0;
         this->Hit_points = 0;
     }
     else{
-        this->Energy_points -= amount;
-        std::cout<<"takes damage of "<<amount<<" ,only "<<this->Energy_points<<" remaining"<<std::endl;
+        this->Hit_points -= amount;
+        std::cout<<" takes damage of "<<amount<<" ,only "<<this->Hit_points<<" remaining"<<std::endl;
     }
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
     std::cout<<"ClapTrap "<<this->name;
-    if (Hit_points > 0)
+    if (Hit_points > 0 && this->Energy_points > 0)
     {
+        this->Energy_points--;
         this->Hit_points += amount;
         std::cout<<" Repaired amount of "<<amount<<" ,now has "<<Hit_points<<" health"<<std::endl;
     }
+    else if (Hit_points == 0)
+        std::cout<<" Already DEAD, can't Repaire none"<<std::endl;
     else
-        std::cout<<" Already DEAD, can't Repaired none"<<std::endl;
+        std::cout << " can't repaire none" <<std::endl;
 }

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 15:41:38 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/02 17:43:21 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/10/08 15:59:37 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/04 10:40:30 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <iostream>
 #include <new>
+#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Animal{
-    protected:
-        std::string type;
+class Dog: public Animal{
+    private:
+        Brain* agayo;
     public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        virtual void makeSound()const{std::cout<<"steph curry from downtown"<<std::endl;};
-        std::string getType()const;
-        Animal &operator=(Animal &object);
+        Dog();
+        Dog(std::string type);
+        ~Dog();
+        Dog &operator=(Dog const &object);
+        void makeSound()const;
 };
 
 #endif

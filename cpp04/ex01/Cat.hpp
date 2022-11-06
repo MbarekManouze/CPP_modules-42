@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 15:41:38 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/02 17:43:21 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/10/08 15:51:49 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/04 10:12:34 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-#include <iostream>
 #include <new>
+#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Animal{
-    protected:
-        std::string type;
+class Cat: public Animal{
+    private:
+        Brain* agayo;        
     public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        virtual void makeSound()const{std::cout<<"steph curry from downtown"<<std::endl;};
-        std::string getType()const;
-        Animal &operator=(Animal &object);
+        Cat();
+        Cat(std::string type);
+        ~Cat();
+        Cat &operator=(Cat &object);
+        void makeSound()const;
 };
+
 
 #endif

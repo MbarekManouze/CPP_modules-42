@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:57:43 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/04 18:07:01 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/30 21:19:48 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,7 @@ class ScavTrap:public ClapTrap{
         ~ScavTrap();
         ScavTrap operator=(ScavTrap &object);
         void attack(const std::string &target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
         void guardGate();
-    private:
-        std::string name;
-        int H_P;
-        int E_P;
-        int A_D;
 };
 
 

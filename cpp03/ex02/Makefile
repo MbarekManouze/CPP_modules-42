@@ -5,24 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/16 12:46:25 by mmanouze          #+#    #+#              #
-#    Updated: 2022/10/24 15:37:03 by mmanouze         ###   ########.fr        #
+#    Created: 2022/10/29 10:25:42 by mmanouze          #+#    #+#              #
+#    Updated: 2022/10/30 22:13:12 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = Fixed
-Cc = clang++
+NAME = FragTrap
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Fixed.cpp
+SRCS = ClapTrap.cpp FragTrap.cpp main.cpp ScavTrap.cpp
 
-all : $(Name)
 
-$(Name) : $(SRCS)
-	$(Cc) $(CFLAGS) $(SRCS) -o $(Name)
+all : $(NAME)
 
-fclean :
-	rm -rf $(Name)
+$(NAME) : $(SRCS)
+	c++ $(CFLAGS) $(SRCS) -o $(NAME)
+
+fclean : 
+	rm $(NAME)
 
 re : fclean all
 
-.PHONY : all re fclean
+.PHONY : re fclean all

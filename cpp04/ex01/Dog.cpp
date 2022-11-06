@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:00:19 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/04 10:11:21 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/04 10:14:50 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Dog::Dog():Animal("Dog"){
     std::cout<<"Dog Default Constructor Called"<<std::endl;
+    this->agayo = new Brain;
 }
 
 Dog::Dog(std::string type){
@@ -23,9 +24,10 @@ Dog::Dog(std::string type){
 
 Dog::~Dog(){
     std::cout<<"Dog Deafult Destructor Caled"<<std::endl;
+    delete this->agayo;
 }
 
-Dog &Dog::operator=(Dog &object){
+Dog &Dog::operator=(Dog const &object){
     this->type = object.getType();
     return (*this);
 }

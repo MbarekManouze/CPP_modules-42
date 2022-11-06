@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/23 19:36:01 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:45:11 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 Fixed::Fixed(): fp_value(0){
 }
 
+Fixed::~Fixed(){
+}
+
 Fixed::Fixed(const int i){
-    this->fp_value = i << this->bits;
+    this->setRawBits(i);
 }
 
 Fixed::Fixed(const float p){
@@ -27,8 +30,25 @@ Fixed::Fixed(Fixed const &object){
     this->fp_value = object.fp_value;
 }
 
+int Fixed::getRawBits(void){
+    return (this->fp_value);
+}
+
+void Fixed::setRawBits(const int Raw){
+    this->fp_value = roundf(Raw << this->bits);
+}
+
+float Fixed::toFloat(void)const{
+    return (float(this->fp_value) / (1 << this->bits));
+}
+
+int Fixed::toInt(void)const{
+    return int(this->fp_value >> this->bits);
+}
+
 Fixed &Fixed::operator=(Fixed const &object){
-    this->fp_value = object.fp_value;
+    if (this != &object)
+        this->fp_value = object.fp_value;
     return (*this);
 }
 
@@ -115,31 +135,20 @@ int Fixed::operator!=(Fixed const &object){
     return (this->fp_value != object.fp_value);
 }
 
-Fixed::~Fixed(){
-    std::cout<<this->fp_value / 256<<" Destructor called"<<std::endl;
-}
 
-float Fixed::toFloat(void)const{
-    return (float(this->fp_value) / (1 << this->bits));
-}
-
-int Fixed::toInt(void)const{
-    return int(this->fp_value >> this->bits);
-}
-
-const Fixed &Fixed::max(Fixed &a, Fixed const &b){
+Fixed &Fixed::max(Fixed &a, Fixed &b){
     if (a > b)
         return (a);
     return (b);
 }
 
-const Fixed &Fixed::min(Fixed &a, Fixed const &b){
+Fixed &Fixed::min(Fixed &a, Fixed &b){
     if (a < b)
         return (a);
     return (b);
 }
 
-const Fixed &Fixed::max(Fixed const &a, Fixed const &b){
+const Fixed Fixed::max(Fixed const &a, Fixed const &b){
     if (a > b)
         return (a);
     return (b);
@@ -149,13 +158,4 @@ const Fixed &Fixed::min(Fixed const &a, Fixed const &b){
     if (a < b)
         return (a);
     return (b);
-}
-
-int Fixed::getRawBits(void){
-    // std::cout<<"getRawBits member function called"<<std::endl;
-    return (this->fp_value);
-}
-
-void Fixed::setRawBits(const int Raw){
-    this->fp_value = roundf(Raw * (1  << this->bits));
 }

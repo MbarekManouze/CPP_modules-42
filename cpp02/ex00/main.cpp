@@ -6,13 +6,13 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:00 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/17 20:33:23 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:45:29 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int Fixed::bits = 8;
+const int Fixed::bits = 8;
 
 int main( void )
 {

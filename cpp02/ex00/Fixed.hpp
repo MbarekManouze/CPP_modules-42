@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:29:24 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/17 20:39:17 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:48:53 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ class Fixed{
     public:
         Fixed();
         Fixed(Fixed& object);
-        Fixed &operator=(Fixed &object);
         ~Fixed();
+        Fixed &operator=(Fixed &object);
         int getRawBits(void);
         void setRawBits(const int Raw);
 };
-
 
 #endif

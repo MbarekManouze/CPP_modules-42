@@ -5,24 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/16 12:46:25 by mmanouze          #+#    #+#              #
-#    Updated: 2022/10/24 15:37:03 by mmanouze         ###   ########.fr        #
+#    Created: 2022/11/02 15:32:00 by mmanouze          #+#    #+#              #
+#    Updated: 2022/11/02 15:48:35 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = Fixed
-Cc = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Fixed.cpp
+NAME = polymor
+CC = c++
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+SRCS = Animal.cpp Cat.cpp Dog.cpp main.cpp
 
-all : $(Name)
+all : $(NAME)
 
-$(Name) : $(SRCS)
-	$(Cc) $(CFLAGS) $(SRCS) -o $(Name)
+$(NAME):$(SRCS)
+	$(CC) $(CFLAGS) $(SRCS)	-o $(NAME)
 
-fclean :
-	rm -rf $(Name)
+fclean : 
+	rm -rf $(NAME)
 
 re : fclean all
 
-.PHONY : all re fclean
+.PHONY : all fclean re

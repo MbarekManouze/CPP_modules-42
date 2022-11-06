@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 16:00:19 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/04 10:11:21 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/10/08 15:53:22 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/04 10:12:19 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog():Animal("Dog"){
-    std::cout<<"Dog Default Constructor Called"<<std::endl;
+Cat::Cat():Animal("Cat"){
+    std::cout<<"Cat Default Constructor Called"<<std::endl;
+    this->agayo = new Brain;
 }
 
-Dog::Dog(std::string type){
+Cat::Cat(std::string type){
     (void)type;
-    std::cout<<"Dog Copy Constructor Called"<<std::endl;
+    std::cout<<"Cat Copy Constructor Called"<<std::endl;
 }
 
-Dog::~Dog(){
-    std::cout<<"Dog Deafult Destructor Caled"<<std::endl;
+Cat::~Cat(){
+    std::cout<<"Cat Default Destructor Called"<<std::endl;
+    delete this->agayo;
 }
 
-Dog &Dog::operator=(Dog &object){
+Cat &Cat::operator=(Cat &object){
     this->type = object.getType();
-    return (*this);
+    return(*this);
 }
 
-void Dog::makeSound()const{
-    std::cout<<"wooooof woooooof"<<std::endl;
+void Cat::makeSound()const{
+    std::cout<<"myaaaaw myaaaaw"<<std::endl;
 }

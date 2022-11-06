@@ -6,7 +6,7 @@
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/16 12:45:11 by mmanouze          #+#    #+#              #
-#    Updated: 2022/10/16 12:45:29 by mmanouze         ###   ########.fr        #
+#    Updated: 2022/10/25 10:41:51 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,6 @@ $(Name) : $(SRCS)
 fclean :
 	rm -rf $(Name)
 
-re : all fclean
+re : fclean all
 
 .PHONY : all re fclean

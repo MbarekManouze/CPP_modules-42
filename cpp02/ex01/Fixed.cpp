@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/17 12:30:11 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:56:43 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed():fp_value(0){
 
 Fixed::Fixed(const int i){
     std::cout<<"Int constructor called"<<std::endl;
-    this->fp_value = i << this->bits;
+    this->setRawBits(i);
 }
 
 Fixed::Fixed(const float p){
@@ -28,12 +28,15 @@ Fixed::Fixed(const float p){
 
 Fixed::Fixed(Fixed const &object){
     std::cout<<"Copy constructor called"<<std::endl;
-    this->fp_value = object.fp_value;
+    *this = object;
 }
 
 Fixed &Fixed::operator=(Fixed const &object){
-    std::cout<<"Copy assignment operator called"<<std::endl;
-    this->fp_value = object.fp_value;
+    if (this != &object)
+    {
+        std::cout<<"Copy assignment operator called"<<std::endl;
+        this->fp_value = object.fp_value;
+    }
     return (*this);
 }
 
@@ -47,18 +50,18 @@ Fixed::~Fixed(){
 }
 
 float Fixed::toFloat(void)const{
-    return (float(this->fp_value) / float(1 << this->bits));
+    return (float(this->fp_value) / (1 << this->bits));
 }
 
 int Fixed::toInt(void)const{
-    return int(this->fp_value >> this->bits);
+    return (this->fp_value >> this->bits);
 }
 
-int Fixed::getRawBits(void){
+int Fixed::getRawBits(void)const{
     std::cout<<"getRawBits member function called"<<std::endl;
     return (this->fp_value);
 }
 
 void Fixed::setRawBits(const int Raw){
-    this->fp_value = roundf(Raw * (1  << this->bits));
+    this->fp_value = roundf(Raw << this->bits);
 }

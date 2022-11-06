@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:29:24 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/23 19:36:04 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:42:28 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ class Fixed{
         const Fixed operator-(Fixed const &object)const;
         const Fixed operator*(Fixed const &object)const;
         const Fixed operator/(Fixed const &object)const;
-        const static Fixed &max(Fixed &a, Fixed const &b);
-        const static Fixed &max(Fixed const &a, Fixed const &b);       
-        const static Fixed &min(Fixed &a, Fixed const &b);
+        const static Fixed max(Fixed const &a, Fixed const &b);
+        static Fixed &max(Fixed &a, Fixed &b);       
         const static Fixed &min(Fixed const &a, Fixed const &b);
+        static Fixed &min(Fixed &a, Fixed &b);
         int operator>(Fixed const &object)const;
         int operator<(Fixed const &object)const;
         int operator>=(Fixed const &object);

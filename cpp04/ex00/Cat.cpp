@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:53:22 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/08 20:56:16 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/04 10:11:25 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Cat::Cat():Animal("Cat"){
 }
 
 Cat::Cat(std::string type){
+    (void)type;
     std::cout<<"Cat Copy Constructor Called"<<std::endl;
 }
 

@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 15:41:38 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/02 17:43:21 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/11/04 09:25:14 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/04 10:44:18 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+
 
 #include <iostream>
 #include <new>
 
-class Animal{
-    protected:
-        std::string type;
+class Brain{
     public:
-        Animal();
-        Animal(std::string type);
-        virtual ~Animal();
-        virtual void makeSound()const{std::cout<<"steph curry from downtown"<<std::endl;};
-        std::string getType()const;
-        Animal &operator=(Animal &object);
+        std::string ideas[100];
+        Brain(){std::cout << "Brain Constructor Called" <<std::endl;}
+        ~Brain(){std::cout << "Brain Destructor Called" << std:: endl;}
 };
+
 
 #endif

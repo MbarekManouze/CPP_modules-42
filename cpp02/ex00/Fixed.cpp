@@ -6,26 +6,28 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/23 19:36:27 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:33:39 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(): fp_value(0){
+Fixed::Fixed():fp_value(0){
     std::cout<<"Default constructor called"<<std::endl;
 }
 
 Fixed::Fixed(Fixed& object){
     std::cout<<"Copy constructor called"<<std::endl;
-    this->fp_value = object.fp_value;
-    *this = object; // only this expression is enough to copy the whole object !!!
+    *this = object;
 }
 
 Fixed &Fixed::operator=(Fixed& object){
-    std::cout<<"Copy assignment operator called"<<std::endl;
-    this->fp_value = object.fp_value;
-    this->getRawBits();
+    if (this != &object)
+    {
+        std::cout<<"Copy assignment operator called"<<std::endl;
+        this->fp_value = object.fp_value;
+        this->getRawBits();
+    }
     return (*this);
 }
 
