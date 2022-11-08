@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:59:37 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/04 10:40:30 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:14:38 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 class Dog: public Animal{
     private:
-        Brain* agayo;
+        Brain* brain;
     public:
         Dog();
-        Dog(std::string type);
+        Dog(Dog const &object);
         ~Dog();
         Dog &operator=(Dog const &object);
         void makeSound()const;

@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 15:41:38 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/07 15:42:38 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/10/08 17:31:38 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/08 22:32:33 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
 
-#include <iostream>
-#include <new>
+void f(){
 
-class Animal{
-    protected:
-        std::string type;
-    public:
-        Animal();
-        Animal(std::string type);
-        Animal(Animal const &object);
-        virtual ~Animal();
-        virtual void makeSound()const;
-        std::string getType()const;
-        Animal &operator=(Animal const &object);
-};
+    int l = 5;
+    int i = 0;
 
-#endif
+    Animal *animal[l];
+    
+    while (i < l)
+    {
+        if (i % 2)
+            animal[i] = new Dog;
+        else
+            animal[i] = new Cat;
+        i++;
+    }
+    i = 0;
+    while (i < l)
+        delete animal[i++];
+}
+
+int main()
+{
+    f();
+    return 0;
+}

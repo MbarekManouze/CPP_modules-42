@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:51:49 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/04 10:12:34 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:14:30 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 
 class Cat: public Animal{
     private:
-        Brain* agayo;        
+        Brain* brain;        
     public:
         Cat();
-        Cat(std::string type);
+        Cat(Cat const &object);
         ~Cat();
-        Cat &operator=(Cat &object);
+        Cat &operator=(Cat const &object);
         void makeSound()const;
 };
 

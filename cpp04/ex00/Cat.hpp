@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:51:49 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/04 10:09:38 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:12:12 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,21 @@
 #include <iostream>
 #include "Animal.hpp"
 
+class WrongCat: public WrongAnimal{
+    public:
+        WrongCat();
+        WrongCat(WrongCat const &object);
+        ~WrongCat();
+        WrongCat &operator=(WrongCat const &object);
+        void makeSound()const;
+};
+
 class Cat: public Animal{
     public:
         Cat();
-        Cat(std::string type);
+        Cat(Cat const &object);
         ~Cat();
-        Cat &operator=(Cat &object);
+        Cat &operator=(Cat const &object);
         void makeSound()const;
 };
 
