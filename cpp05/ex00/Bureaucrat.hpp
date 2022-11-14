@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:03:50 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/10 12:59:54 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:01:12 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,11 @@ class Bureaucrat{
         void decrement();
         class GradeTooHighException : public std::exception{
             public :
-                const char * what()const _NOEXCEPT{
-                    return("Grade is too high");
-                }
+                const char * what()const throw();
         };
         class GradeTooLowException : public std::exception{
             public :
-                const char * what()const _NOEXCEPT{
-                    return("Grade is too low");
-                }
+                const char * what()const throw();
         };
 };
 

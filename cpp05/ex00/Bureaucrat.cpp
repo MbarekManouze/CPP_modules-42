@@ -6,14 +6,18 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:12:57 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/10 12:36:03 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:01:16 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat():name("Vegar"),Grade(150){
     std::cout << "Bureaucrat default constructor called" << std::endl;
+    if (Grade <  1)
+        throw GradeTooHighException();
+    if (Grade > 150)
+        throw GradeTooLowException();
 }
 
 Bureaucrat::~Bureaucrat(){
@@ -28,7 +32,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int Grade):name(name),Grade(Grad
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &object){
+Bureaucrat::Bureaucrat(Bureaucrat const &object):name(object.getName()){
     std::cout << "Bureaucrat copy constructor called" << std::endl;
     this->operator=(object);
 }
@@ -62,7 +66,14 @@ void Bureaucrat::increment(){
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &object){
-    std::cout << "insertion operator Called" << std::endl;
     out << object.getName() << ", bureaucrat grade " << object.getGrade();
     return out;
+}
+
+const char * Bureaucrat::GradeTooHighException::what() const throw(){
+    return("Grade is too high");
+}
+
+const char * Bureaucrat::GradeTooLowException::what() const throw(){
+    return("Grade is too low");
 }

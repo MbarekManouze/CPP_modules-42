@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:14:40 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/12 16:59:26 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:29:02 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PresidentialPardonForm : public Form{
         PresidentialPardonForm();
         ~PresidentialPardonForm();
         PresidentialPardonForm(PresidentialPardonForm const &object);
-        PresidentialPardonForm(std::string name, int Signed, int sgn_grade, int exe_grade);
+        PresidentialPardonForm(std::string name);
         PresidentialPardonForm &operator=(PresidentialPardonForm const &object);
         void execute(Bureaucrat const & executor) const;
 };

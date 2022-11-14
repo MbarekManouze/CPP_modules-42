@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:16:42 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/12 16:59:29 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:49:39 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class RobotomyRequestForm : public Form{
     public :
         RobotomyRequestForm();
         ~RobotomyRequestForm();
-        RobotomyRequestForm(std::string name ,bool Signed, int sgn_grade, int exe_grade);
+        RobotomyRequestForm(std::string name);
         RobotomyRequestForm(RobotomyRequestForm const &object);
         RobotomyRequestForm &operator=(RobotomyRequestForm const &object);
         void execute(Bureaucrat const & executor) const;

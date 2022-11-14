@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:18:42 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/12 16:59:32 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:50:27 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ShrubberyCreationForm : public Form{
         ShrubberyCreationForm();
         ~ShrubberyCreationForm();
         ShrubberyCreationForm(ShrubberyCreationForm const &object);
-        ShrubberyCreationForm(std::string name ,bool Signed, int sgn_grade, int exe_grade);
+        ShrubberyCreationForm(std::string name);
         ShrubberyCreationForm &operator=(ShrubberyCreationForm const &object);
         void execute(Bureaucrat const & executor) const;
 };

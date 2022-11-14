@@ -6,38 +6,38 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:12:57 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/11 11:59:04 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:08:55 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat():name("tafokt"){
-    this->Grade = 150;
-    // std::cout << "Bureaucrat default constructor called" << std::endl;
+Bureaucrat::Bureaucrat():name("tafoukt"){
+    std::cout << "Bureaucrat default constructor called" << std::endl;
+    this->Grade = 150;   
+     if (Grade <  1)
+        throw GradeTooHighException();
+    if (Grade > 150)
+        throw GradeTooLowException();
 }
 
 Bureaucrat::~Bureaucrat(){
-    // std::cout << "Bureaucrat destructor called" << std::endl;
     std::cout << "Sir rah salina lkhdma db!" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int Grade):name(name),Grade(Grade){
-    // std::cout << "Bureaucrat param constructor called" << std::endl;
     if (this->Grade < 1)
         throw Bureaucrat::GradeTooHighException();
     else if (this->Grade > 150)
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &object){
-    // std::cout << "Bureaucrat copy constructor called" << std::endl;
+Bureaucrat::Bureaucrat(Bureaucrat const &object):name(object.getName()){
     this->operator=(object);
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &object){
-    // std::cout << "Bureaucrat Assignment operator Called" << std::endl;
     if (this != &object){
         this->Grade = object.Grade;
     }
@@ -65,7 +65,6 @@ void Bureaucrat::increment(){
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &object){
-    // std::cout << "insertion operator Called" << std::endl;
     out << object.getName() << ", bureaucrat grade " << object.getGrade();
     return out;
 }
@@ -75,5 +74,13 @@ void Bureaucrat::signForm(Form const &object){
         std::cout << "Bureaucrat "<< this->name << " signed Form " << object.get_name() << std::endl;
     else
         std::cout << "Bureaucrat "<< this->name << " couldn’t sign Form " \
-        << object.get_name() << " because the grade is too low" << std::endl; 
+        << object.get_name() << " cause it does not have permission" << std::endl; 
+}
+
+const char * Bureaucrat::GradeTooHighException::what() const throw(){
+    return ("grade is too HIGH");
+}
+
+const char * Bureaucrat::GradeTooLowException::what() const throw(){
+    return ("grade is too LOW");
 }

@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:11:45 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/11 11:11:45 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:52:03 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,11 @@ class Form{
         void beSigned(Bureaucrat const &object);
         class GradeTooHighException : public std::exception{
             public :
-                const char * what()const _NOEXCEPT{
-                    return ("grade is too HIGH");
-                }
+                const char * what()const throw();
         };
         class GradeTooLowException : public std::exception{
             public :
-                const char * what()const _NOEXCEPT{
-                    return ("grade is too LOW");
-                }
+                const char * what()const throw();
         };
 };
 

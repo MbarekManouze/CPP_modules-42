@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 18:07:31 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/12 22:39:00 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:53:58 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define INTERN_HPP
 
 #include <iostream>
-
+#include "Form.hpp"
+// class From;
 
 class Intern{
     private:
@@ -26,7 +27,11 @@ class Intern{
         Intern(std::string name ,std::string target);
         Intern(Intern const & object);
         Intern &operator=(Intern const &object);
-        void makeForm(std::string name ,std::string target);
+        Form *makeForm(std::string name ,std::string target);
+        class ClassDoesNotExist : public std::exception{
+            public :
+                const char * what()const throw();
+        };
 };
 
 #endif

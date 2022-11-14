@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:16:44 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/12 17:42:52 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:00:08 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ RobotomyRequestForm::RobotomyRequestForm():Form("Tafoukt", false, 72, 45), targe
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name ,bool Signed, int sgn_grade, int exe_grade)
-:Form(name, Signed, sgn_grade, exe_grade), target("STREET"){}
+RobotomyRequestForm::RobotomyRequestForm(std::string name)
+:target(name){}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &object)
-:Form(object.get_name(), object.get_signed(), object.get_sign_grade(), object.get_execution_grade()){}
+:Form(object.get_name(), object.get_signed(), object.get_sign_grade(), object.get_execution_grade()){
+    this->operator=(object);
+}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &object){
     if (this != &object)
@@ -31,14 +33,19 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &o
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor)const{
-    if (executor.getGrade() <= this->get_execution_grade() && this->get_signed())
+    if (executor.getGrade() <= this->get_execution_grade())
     {
-        std::cout << this->target;
-        srand(time(NULL));
-        if (rand() % 2)
-            std::cout << " has been robotomized successfully 50\% of the time" << std::endl;
+        if (this->get_signed())
+        {
+            std::cout << this->target;
+            srand(time(NULL));
+            if (rand() % 2)
+                std::cout << " has been robotomized successfully 50\% of the time" << std::endl;
+            else
+                std::cout << "has Failed" << std::endl;
+        }
         else
-            std::cout << "has Failed" << std::endl;
+            std::cout << "couldn't execute because it isn't signed" << std::endl;
     }
     else
         throw Form::GradeTooLowException();
