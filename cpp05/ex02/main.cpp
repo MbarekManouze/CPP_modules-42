@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:03:09 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 14:24:30 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:49:09 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int     main(void)
 		RobotomyRequestForm robot;
 
 		robot.beSigned(beru);
-		beru.executeForm(robot);
 		form.beSigned(beru);
 		form.execute(beru);
 		robot.execute(beru);

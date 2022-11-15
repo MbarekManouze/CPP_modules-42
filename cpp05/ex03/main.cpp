@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:03:09 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 13:08:22 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:41:23 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int     main(void)
 	
 	Intern someRandomIntern;
 	Form* rrf;
-	rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "tree");
+	rrf = someRandomIntern.makeForm("Shrubbery CreationForm", "tree");
 	try
 	{
 		Bureaucrat beru("GOT",4);

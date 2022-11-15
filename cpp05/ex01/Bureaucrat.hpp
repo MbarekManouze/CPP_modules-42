@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:03:50 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 10:38:54 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:29:37 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <exception>
 #include "Form.hpp"
 
-class Bureaucrat;
 class Form;
 
 class Bureaucrat{

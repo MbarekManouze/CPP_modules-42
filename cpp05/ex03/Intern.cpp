@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 18:10:23 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 11:57:00 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:40:57 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,12 @@ Intern::Intern(){}
 
 Intern::~Intern(){}
 
-Intern::Intern(std::string name ,std::string target):name(name),target(target){}
-
 Intern::Intern(Intern const &object){
     this->operator=(object);
 }
 
 Intern &Intern::operator=(Intern const &object){
-    if (this != &object)
-    {
-        this->name = object.name;
-        this->target = object.target; 
-    }
+    (void)object;
     return (*this);
 }
 
@@ -44,7 +38,6 @@ const char * Intern::ClassDoesNotExist::what() const throw(){
 }
 
 Form *Intern::makeForm(std::string name, std::string target){
-
 
     Form *formidable = NULL;
 

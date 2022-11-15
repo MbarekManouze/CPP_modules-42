@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 18:07:31 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 11:53:58 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:40:33 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,11 @@
 
 #include <iostream>
 #include "Form.hpp"
-// class From;
 
 class Intern{
-    private:
-        std::string name;
-        std::string target;
     public:
         Intern();
         ~Intern();
-        Intern(std::string name ,std::string target);
         Intern(Intern const & object);
         Intern &operator=(Intern const &object);
         Form *makeForm(std::string name ,std::string target);
