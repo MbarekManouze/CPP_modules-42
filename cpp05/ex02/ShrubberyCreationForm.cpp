@@ -6,13 +6,13 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:19:30 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 15:11:43 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:12:04 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm():Form("Tafoukt", false, 25, 5), target("tree"){}
+ShrubberyCreationForm::ShrubberyCreationForm():Form("Tafoukt", false, 145, 137), target("tree"){}
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 

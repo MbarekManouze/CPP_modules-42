@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:16:44 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 11:39:54 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:14:28 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const{
         if (this->get_signed())
         {
             std::cout << this->target;
-            srand(time(NULL));
-            if (rand() % 2)
+            if (time(NULL) % 2)
                 std::cout << " has been robotomized successfully 50\% of the time" << std::endl;
             else
                 std::cout << " has Failed" << std::endl;

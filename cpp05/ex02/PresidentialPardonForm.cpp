@@ -6,13 +6,13 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:14:42 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/14 12:47:56 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:02:20 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm():Form("tafoukt", false, 145, 137),target("Tafoukt"){}
+PresidentialPardonForm::PresidentialPardonForm():Form("tafoukt", false, 25, 5),target("Tafoukt"){}
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
 

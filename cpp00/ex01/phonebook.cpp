@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:10:58 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/07 15:18:52 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:18:33 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void Phonebook::display_search()
     getline(std::cin, s);
     if (std::cin.eof())
         exit(0);
-    k = atoi(s.c_str());
+    k = atoi(s.c_str()); 
     if (k > i || k > 8 || k <= 0)
         std::cout<<"SORRY ,NO SUCH INDEX \n"<<std::ends;
     else
