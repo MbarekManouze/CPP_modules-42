@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 08:41:23 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/22 19:42:13 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/11/20 20:38:33 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/22 12:08:54 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int main( void ) {
+#include <iostream>
 
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max(a, b) << std::endl;
+template <typename T>
 
-    return 0;
+void fun(T const &o){
+    std::cout << o << std::endl;
 }
+
+template <typename T>
+
+void iter(T *arr, int length, void(*fun)(T const &o)){
+
+    int i = 0;
+
+    while (i < length){
+        fun(arr[i]);
+        i++;
+    }
+    return ;
+}
+
+
+#endif

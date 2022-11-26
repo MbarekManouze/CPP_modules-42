@@ -5,25 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 08:41:23 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/22 19:42:13 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/11/24 14:53:14 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/25 18:30:17 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Span.hpp"
 
-int main( void ) {
+int main()
+{
+    Span sp(5);
+    int ok[5] = {6,3,17,9,11};
+    
+    sp.better_addnum(ok, 5);
 
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    // sp.addNumber(6);
+    // sp.addNumber(3);
+    // sp.addNumber(17);
+    // sp.addNumber(9);
+    // sp.addNumber(11);
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max(a, b) << std::endl;
-
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
+    
     return 0;
 }

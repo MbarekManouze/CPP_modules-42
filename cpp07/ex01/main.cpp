@@ -5,25 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 08:41:23 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/22 19:42:13 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/11/20 22:30:02 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/22 12:08:13 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "iter.hpp"
 
-int main( void ) {
 
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+int main() {
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max(a, b) << std::endl;
+    std::string array[6] = {"mbarek","tafoukt","ayour","robin hood", "Shanks" ,"Monkey.D.Dragon"};
+
+    iter(array, 6, fun);
 
     return 0;
 }

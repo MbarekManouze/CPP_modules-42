@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 08:41:23 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/22 19:42:13 by mmanouze         ###   ########.fr       */
+/*   Created: 2022/11/20 16:01:50 by mmanouze          #+#    #+#             */
+/*   Updated: 2022/11/22 11:31:24 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-int main( void ) {
+#include <iostream>
 
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+template <typename T> 
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max(a, b) << std::endl;
+void swap(T &x,T &y)
+{
+    T z;
 
-    return 0;
+    z = x;
+    x = y;
+    y = z;
 }
+
+template <typename T> 
+
+T max(T &x, T &y){
+    return ((x > y) ? x : y);
+}
+
+template <typename T> 
+
+T min(T &v, T &b){
+    return ((v < b) ? v : b);
+}
+
+#endif

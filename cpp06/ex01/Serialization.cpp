@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:58:06 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/18 10:44:19 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/19 23:37:58 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@ Data* deserialize(uintptr_t raw){
 
 int main(){
 
-    Data pol;
-    uintptr_t a = 5;
+    Data *pol = new Data;
 
-    std::cout << "pol at first : " << &pol << std::endl;
-    // std::cout << "a at first : " <<&a << std::endl;
+    pol->i = 66;
+    pol->j = 55;
 
-    uintptr_t u = serialize(&pol);
-
-    std::cout << "u after conversion : " << &u << std::endl;
+    uintptr_t u = serialize(pol);
 
     Data *pel = deserialize(u);
 
-    // std::cout << "pel after conversion : " <<&pol << std::endl;
-    std::cout << "pel after conversion : " << &(*pel) << std::endl;
+    std::cout << pel->i << std::endl;
+    std::cout << pel->j << std::endl;
 
+    return (0);
 }

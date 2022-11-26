@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:29:24 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/25 12:42:28 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:44:56 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed{
     private:
         int fp_value;
-        static const int bits;
+        const int bits;
     public:
         Fixed();
         Fixed(const int i);
@@ -35,7 +35,7 @@ class Fixed{
         const Fixed operator-(Fixed const &object)const;
         const Fixed operator*(Fixed const &object)const;
         const Fixed operator/(Fixed const &object)const;
-        const static Fixed max(Fixed const &a, Fixed const &b);
+        const static Fixed &max(Fixed const &a, Fixed const &b);
         static Fixed &max(Fixed &a, Fixed &b);       
         const static Fixed &min(Fixed const &a, Fixed const &b);
         static Fixed &min(Fixed &a, Fixed &b);
@@ -47,7 +47,7 @@ class Fixed{
         int operator!=(Fixed const &object);
         float toFloat( void ) const;
         int toInt( void ) const;
-        int getRawBits(void);
+        int getRawBits(void)const;
         void setRawBits(const int Raw);
 };
 std::ostream &operator<<(std::ostream &os, Fixed const &object);

@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:25:49 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/11/18 23:03:49 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/20 01:01:28 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ Base * generate(void){
 
 void identify(Base *p){
     
-    A *a;
-    B *b;
-    C *c;
+    A *a = NULL;
+    B *b = NULL;
+    C *c = NULL;
 
     a = dynamic_cast<A*>(p);
     b = dynamic_cast<B*>(p);
@@ -43,7 +43,7 @@ void identify(Base *p){
     else if (c != NULL)
         std::cout << "C" << std::endl;
     else
-        std::cout << "walooo waloooo" << std::endl;
+        std::cout << "NO successful cast" << std::endl;
 }
 
 void identify(Base& p){
@@ -52,31 +52,39 @@ void identify(Base& p){
 
     try{
         A &a = dynamic_cast<A&>(p);
+        (void)a;
         std::cout << "A" << std::endl; 
     }
     catch(std::bad_cast &e){i++;}
     try{
         B &b = dynamic_cast<B&>(p);
+        (void)b;
         std::cout << "B" << std::endl; 
     }
     catch(std::bad_cast &e){i++;}
     try{
         C &c = dynamic_cast<C&>(p);
+        (void)c;
         std::cout << "C" << std::endl; 
     }
     catch(std::bad_cast &e){i++;}
     if (i ==3)
-        std::cout << "waloooo waloooo" << std::endl; 
+        std::cout << "NO successful cast" << std::endl; 
+}
+
+void ft_ok(){
+
+    Base *a = generate();
+    B b;
+
+    identify(a);
+    identify(b);
+
+    delete a;
 }
 
 int main()
 {
-    Base a;
-
-    identify(&a);
-    identify(a);
-
+    ft_ok();
+    return(0);
 }
-
-
-

@@ -6,31 +6,31 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 12:34:36 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/10/25 12:45:11 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/11/22 19:45:11 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(): fp_value(0){
+Fixed::Fixed(): fp_value(0),bits(8){
 }
 
 Fixed::~Fixed(){
 }
 
-Fixed::Fixed(const int i){
+Fixed::Fixed(const int i):bits(8){
     this->setRawBits(i);
 }
 
-Fixed::Fixed(const float p){
+Fixed::Fixed(const float p):bits(8){
     this->fp_value = roundf(p * (1 << this->bits));
 }
 
-Fixed::Fixed(Fixed const &object){
+Fixed::Fixed(Fixed const &object):bits(8){
     this->fp_value = object.fp_value;
 }
 
-int Fixed::getRawBits(void){
+int Fixed::getRawBits(void)const{
     return (this->fp_value);
 }
 
@@ -148,7 +148,7 @@ Fixed &Fixed::min(Fixed &a, Fixed &b){
     return (b);
 }
 
-const Fixed Fixed::max(Fixed const &a, Fixed const &b){
+const Fixed &Fixed::max(Fixed const &a, Fixed const &b){
     if (a > b)
         return (a);
     return (b);
